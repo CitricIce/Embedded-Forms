@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact form example</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 480px; margin: 40px auto; padding: 0 16px; }
+    label { display: block; margin-top: 14px; font-weight: 600; }
+    input, textarea, select { width: 100%; padding: 8px; margin-top: 4px; box-sizing: border-box; font: inherit; }
+    button { margin-top: 18px; padding: 10px 18px; font: inherit; cursor: pointer; }
+    form[data-state="success"] [data-sheet-status] { color: green; }
+    form[data-state="error"] [data-sheet-status] { color: crimson; }
+  </style>
+</head>
+<body>
+  <h1>Contact us</h1>
+
+  <!-- Replace the URL with your deployed Apps Script web app URL -->
+  <form data-sheet-form="https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec"
+        data-sheet="Submissions"
+        data-success="Thanks! We'll get back to you soon.">
+    <label>Name <input name="Name" required></label>
+    <label>Email <input name="Email" type="email" required></label>
+    <label>Topic
+      <select name="Topic">
+        <option>General</option>
+        <option>Partnership</option>
+        <option>Support</option>
+      </select>
+    </label>
+    <label>Message <textarea name="Message" rows="5" required></textarea></label>
+    <button type="submit">Send</button>
+    <p data-sheet-status></p>
+  </form>
+
+  <script src="sheet-forms.js"></script>
+</body>
+</html>
